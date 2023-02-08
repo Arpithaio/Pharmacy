@@ -1,0 +1,13 @@
+﻿{
+  "Id": "OezRFmQcSEuXZBL7WgKU3w",
+  "Reference": "nXYsBgmqu0mxoJwAwgUMhQ/OezRFmQcSEuXZBL7WgKU3w",
+  "ParentRef": "nXYsBgmqu0mxoJwAwgUMhQ/YtKoXRfzqU6Kb5EbNN--8g",
+  "Name": "Drugs",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Created": "2023-01-25T13:21:06.102247Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.4.1.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-01-25T13:21:06.102247Z"
+}

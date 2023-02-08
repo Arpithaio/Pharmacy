@@ -1,0 +1,361 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sacb="clr-namespace:SARJI_Library_SOPM_Activities.Application.Common.Browser;assembly=SARJI.Library.SOPM.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictonary argument to store output Ui Element" Name="io_dictUiElements" Type="InOutArgument(scg:Dictionary(x:String, ui:UiElement))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>723,638</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>SARJI_Library_SOPM_Activities.Application.Common</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>SARJI_Library_SOPM_Activities.Application.Common.Browser</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="55">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>SARJI.Library.SOPM.Activities</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="638,2410" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="576,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <TryCatch DisplayName="Try Navigating to Stock Level Inventory in Hospisys" sap:VirtualizedContainerService.HintSize="576,817" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <ui:RetryScope DisplayName="Retry Navigating to Stock Level Inventory in Hospisys" sap:VirtualizedContainerService.HintSize="442,589" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[cint(in_Config(&quot;RetryNumberNavigateHospisys&quot;))]" RetryInterval="00:00:30">
+          <ui:RetryScope.ActivityBody>
+            <ActivityAction>
+              <Sequence DisplayName="Navigating to Stock Level Inventory in Hospisys - Action" sap:VirtualizedContainerService.HintSize="400,252" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <sacb:Navigate_To_Url DisplayName="Navigate To Stock Level Hospisys Url (Navigate_To_Url)" sap:VirtualizedContainerService.HintSize="338,141" sap2010:WorkflowViewState.IdRef="Navigate_To_Url_1" URL="[in_Config(&quot;HospisysInventoryStockLevel&quot;).ToString.Trim]" UiElement="[io_dictUiElements(&quot;HospisysUiElement&quot;)]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:RetryScope.ActivityBody>
+          <ui:RetryScope.Condition>
+            <ActivityFunc x:TypeArguments="x:Boolean">
+              <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State Stock Level report" EnableIfExists="False" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="334,177" sap2010:WorkflowViewState.IdRef="NCheckState_3" Timeout="5" Version="V1">
+                <uix:NCheckState.IfExists>
+                  <Sequence DisplayName="tock Level report Target appears" sap:VirtualizedContainerService.HintSize="400,105" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </uix:NCheckState.IfExists>
+                <uix:NCheckState.IfNotExists>
+                  <Sequence DisplayName="tock Level report Target does not appear" sap:VirtualizedContainerService.HintSize="400,105" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </uix:NCheckState.IfNotExists>
+                <uix:NCheckState.Target>
+                  <uix:TargetAnchorable BrowserURL="http://103.186.69.216/Hospisys/IMS/rptStockLevel" ContentHash="SH1496PtVE-dbUbOmlcPcQ" DesignTimeRectangle="1290, 153, 79, 22" ElementType="Text" FriendlyName="'Check App State 'Stock Level''" FullSelectorArgument="&lt;webctrl aaname='Stock Level' parentid='main' tag='A' /&gt;" FuzzyAccuracy="0.85" FuzzySelectorArgument="&lt;webctrl aaname='Stock Level' parentid='main' tag='A' type='' class='' check:innerText='Stock Level' /&gt;" Guid="dd86ecdd-6258-4356-bad3-d98c61944a02" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFMAAAAaCAYAAADL5WCkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUYSURBVGhD7Zc/SCRnGMansFhIYXHFFBa3pHDBwoUUyjUupLiFKxYsIliE5UAWC1ksjuUKs3jkWK6Q5SAsFoExcLCCyUoQ9gjIGBBmCYbxYBk9NmQOthiIZAoL+yfPN/+c0VF3w0BSTPHA+v3/fvO87/spXV1dIVUySmEmqBRmgkphJqgUZoJKYSaoFGaC+v/AtC0YpzoMy47v/6/Ec1lDC/ZlTN8NjQbz0oJ+0EbrdQ21zSZaOx1oZ1b82H8pu6+g/HkW5XdGbH8g24S6q6B9ZMKO609Y5l4VuakSWqcPf+SHYdoG2mt5SJIEeaGE0lzG+T2/0YXFr2UeNlH/TnV+x84fUSPDHHZR+0JCYZN7xvUnrERhiksuyRJKb7VrJ1gmzCEXvyDolRzkxSa6PR162K0XJowTtp0asGyvLSTbNKCH+m/BvLRh9kU/HRj+UCPAtAfe2v55xFmYQkwrPM6GdcYxfd/h3n6cZ4i7eeMSh1l+nEFpS4seXjj2uey41Je80oZJCMZBHSV+gKBvrgrlxLvYJcN0q4xcaF5uvYPz02uYNtOK+nYJspRHdZd/h/e9D6aztpjnry1j6Y2K834blekMirxDsNagg8qMt46lobXiRp+jiSLq++6+Y8H8O6YxIuaozrrYaBKF1QZzlbis32dAWZaRdSC6ba7DJORXW1D51c2TDuolpoanDah0hrlfRV7ix9lk3u0bdK/G/GtfO3NHg7otYOdQ2dGjIIXugWke1DDPeeVtlS40oYl1Jgqo//IBnbUcpC8b0Dx3GrsVZD8ronH8EeqbIiQCa7xnlAx1tNfnIc1W0RmMCfMb5XeMAlTdrqLouU1erKNDAHEwjXdlyDxksxcKFQIUl2r8+hHdF/wwT+pQh6H1KTcC6NKnBWQdIIyEuDx8F0y6ufuSEB4VUdtqQfm+xYJZIVyRonScE3R+Yh71Q0aIE1VZyF+1oH/S0HjGey1U0djmPKq5TrgSxx5Z48E0f3qFlz98wGVM5y0RqrbLEJ4i0K8VPmNuwmSIb5eQmSpD6V9vbvcaKBBQ9cffmGOzyCzyEhehdcUYATNIDfOoHZiR/kB3wjS5djTt+HLGDlXUF9zCaTClLD2WGQWMMrHe7O05kjjvPiNrHJjtb1/h5z/jO+PFfLZZYB6sQf3jtjNNET6PuPlJnDMZbusMtwU6M1IMrp1Z3KAznnPMTAVK3AXugemsHeN6VxY0hnNmtoLGRgnydAVtEV2WCzm31gnuENZYMB8Cafe7aO+pTmW0xcP6SEGVm08u011/CTdkIT3zcpHN3Hcmkj0dsKZAY1W0ByqaBC4u2eUlzb0K8yFzI59TxoWoqMyRPROWnzNFAWJxqM1JdHAzyHGBPJj5VYXz3OrraMCQdPLxJEqvO9DF3kMD2vsuVAFN3KXXRNFzXgBPFDthDqmA2q4G0z/TgTjfmDDjGsOyDutO3omEwBO/OjOsuVnea88sM/QJ1NirMaxD42fKaPGR7azJfNXZZCoI9edfdPEpVM3dfRvOxQsMy4hj7ghLsYbFj9tlNc9G+tzc5+6to7U8ybZ8NI0Mb1RzoWkWIDNhmELum5BV94gS78Ib4WANdPa57g3aWU31HsfTNdH3nZD7xtOORb/3DvX/nQzeeN478OY7Vbw/OS5wZMiZ/hj/POox1xtEITh3iXv7eu9a7ZDz6PjgzKwLun/G8PgYjQQz1WhKYSaoFGaCSmEmqBRmgkphJqgUZmK6wj/+HBNEd4HJOQAAAABJRU5ErkJggg==" InformativeScreenshot="f9e04dbdf8514e47dca78797f19ff268.png" Reference="nXYsBgmqu0mxoJwAwgUMhQ/wT8hPbyaREWc_IKLGgCvgg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Stock Level - Hospisys' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="1154, 153, 70, 22" ElementType="Text" FriendlyName="'Check App State 'Stock Level''" FullSelectorArgument="&lt;webctrl parentid='main' tag='A' /&gt;" FuzzyAccuracy="0.85" FuzzySelectorArgument="&lt;webctrl parentid='main' tag='A' type='' class='' aaname='Inventory' check:innerText='Inventory' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEoAAAAaCAYAAAAQXsqGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASHSURBVFhH7Zc/aBtnGMZvyGAw9AYPN3io8GCBBxsyRGSJaIYYCj3wEEOGILyIDEVTER2C6tAiPBRRCMJdLA+hCrgolICyCBnHcAqonAZxLghyBQ83mFzBFO1Pn/e7kyXZ5+ri1h1qDQ/Y3/v9/b1/7pXW7/cx1WRNQcXUFFRMTUHF1BRUTE1BxdQUVExNQcXUZFC+g/puGdWGCz/KfkM0GdRxE/k7GtLfNeFF2f8j+Uc1FDcrsE+i7detjwfluXC6jC7fg9uxYbdtOJ6v5vquA7vjwPNH1p96cDjP6QVz+lwn/9ttB+7Io2Wt0/Pgn3B/7jm2D/ewnq/DWMyg3LBo4/mnoS1qvkidI2f48Hq0vzvAwduRe4SKvHOEPhqU+yqHpJZAakmDpoWaXUWRqem+zmPlVgqFhne23msUkNKSyL3i4zpV5O6NrLubQ7UjF/fQ3ExDm1vByuyI/V4etSMP9nNzOCZazqN+7MN5XYBpjIzfyaHSDs72uxVkFgyk19IwlH0ZX3z2CfSH5WFUsqxUNxLQPi/B8sKxS3RFUBqSG2U0ux68bh2FBxqMxxV6q4kCQax8VYcrHmck1L9O8QF82G82yo8MaA8KqHVkXU2tS2xwHb2vQGk6zK0abJfR2ijBnNdg/mCzNvqwvl/FzG0BFNwrAMGznsg96KQ29zNnuH8RTT5a2QXinInCyyYsRt27nSwSuolSK8yATgXr8zrWt+WMkTcP9EcLP367g18/XBlUCsX9MGoIo/k0BZ0XtDymyNYqtKUsaj3a3Dpyt2ewumXhd158fY4P2yiivF2hSsivEdxSDjWCUaCWc6i74bknFkqmjhShe6cXQTkvMjAYyYNHi9TdbqVRPGQKCyiCTvPss9qq7sOxTb6Fe9rbTOeFDCrd8XQc0/tfUPxm52qgVuZNlNuDzYNH6vcFFL3UYiTMJZHdY83Z48XpUXmM3yoiPUiRURlyUXdsD7Xvia1ASXReBMW02zYxMz/+yOCMMM1VxCWQeeGc2QOn0iES4d3AEcknVbgT6lP//c//Pih5YPmhgcSjAoqPkzDCmuC3yzBnDWR2nYgwP7eHjP0tKN7jJdOIThjeIyKizoOilCONJDJPc0izJgrUUftFfYDz07NrACXe3s1AVxGjD8HIw9c4JgV3P/xqtpuov7EJYjIoSRN9fj041+eXrFtFdlFD6ssKLBZ2n/WxJDXwbkHBvAxU35daqQfRLJEVgo9WAOkZYV4DKKpXU4/QFrKoHg097rf51bsvAIfS5SMQFvPLQXEtC29G9pR1i1ID6ZC9/Hg6L7F9oBPUWZeBohyJRs5XteqcbUx/ujg86OGUf08GRW+qfmnQf7CPOt93+D32ItJbDXobRpV3xDUyFs45k/Q3bQvNhnyJhvtE7eF25dxhq+EfO7D2Zd3IPLlPy1JfNXcAWaT6KPZNjLazsVDuXhZJaWmYoudtl2kyqP+RBK50+AVGtWpnJhXxEd0cUJ6F4iDtP2Wta8WPJtHNAaVKCFP0UH5yRdgn6Eal3j/RFFRMTUHF1BRULPXxF9mW5CbRiDXWAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NCheckState.Target>
+              </uix:NCheckState>
+            </ActivityFunc>
+          </ui:RetryScope.Condition>
+        </ui:RetryScope>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="446,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Navigate to stock level Exception " sap:VirtualizedContainerService.HintSize="400,506" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Error Message (Hospisys Navigate To)" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[exception.Message+&quot; at&quot;+exception.Source]" />
+              <ui:SetTransactionProgress TimeoutMS="{x:Null}" DisplayName="Set Transaction Progress Hospisys Navigation Exception" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="338,133" sap2010:WorkflowViewState.IdRef="SetTransactionProgress_4" Progress="Failed to Open Stock Level Inventory Page in Hospisys" TransactionItem="[in_TransactionItem]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:SetTransactionProgress>
+              <Throw DisplayName="Throw SE01C" Exception="[new SystemException(&quot;SE01C&quot;)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <ui:SetTransactionProgress TimeoutMS="{x:Null}" DisplayName="Set Transaction Progress Hospisys Navigation" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="SetTransactionProgress_1" Progress="Successfully Opened Stock Level Inventory Page in Hospisys" TransactionItem="[in_TransactionItem]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:SetTransactionProgress>
+      </TryCatch.Finally>
+    </TryCatch>
+    <TryCatch DisplayName="Try Navigating Drug Store in Docterz" sap:VirtualizedContainerService.HintSize="576,1085" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <ui:RetryScope DisplayName="Retry Navigating to Docterz Drug Store Url" sap:VirtualizedContainerService.HintSize="538,857" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="[cint(in_Config(&quot;RetryNumberNavigateDocterz&quot;))]" RetryInterval="00:00:30">
+          <ui:RetryScope.ActivityBody>
+            <ActivityAction>
+              <Sequence DisplayName=" Docterz Drug Store - Action" sap:VirtualizedContainerService.HintSize="496,520" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Attach Docterz Opened Window" sap:VirtualizedContainerService.HintSize="434,409" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[io_dictUiElements(&quot;DocterzUiElement&quot;)]" OpenMode="Never" OutUiElement="[io_dictUiElements(&quot;DocterzUiElement&quot;)]" ScopeGuid="4160f8e1-d889-480c-b342-9938a755ccc9" Version="V2">
+                  <uix:NApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Docterz Home page - Do" sap:VirtualizedContainerService.HintSize="400,272" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ClickType="Double" DisplayName="Click on Drugs label" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4160f8e1-d889-480c-b342-9938a755ccc9" Version="V1">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://web.docterz.in/#/" ContentHash="7tNT9KjI7Um1u61Y-6F4Aw" DesignTimeRectangle="8, 600, 80, 69" ElementType="Text" FriendlyName="'Drugs'" FullSelectorArgument="&lt;webctrl aaname='                                  Drugs               ' parentid='navigation' tag='A' /&gt;" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;webctrl aaname='                                  Drugs               ' parentid='navigation' tag='A' type='' class='' check:innerText='Drugs' /&gt;" Guid="8fcce46d-2253-4aa3-85fb-5c4a541fb247" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFQAAABJCAYAAACjIwGEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALcSURBVHhe7dnPShtRHIbhXkbuwJ3L7lxk0UXBRZfBLrLTnYIBSRYhFAxkoQuJiywMKkpIg5HSUAgNCGINocHeRqFexK9z5sxMZpKT0bbfZE7qJ7xo5i8+npk4J6/8L3G+MhtN9pf9/PXo5nES9F8jKDiCgiMoOIKCIyg4goIjKDiCgiMoOIKCIyg4goIjKDiCgiMoOIKCsx90syNrxWvJzq0rrzcN+6WU9aC5kwc56P6IrXbSN+6bRtaD5s8ctPad5Iyjsy+7bWf92cC4bxpZB7pa0JfwakGjbZ0/A/T8Rr8utPQtQn03HHsR2QNa+Cp7Cqc7lu2KNzINl3dsaqRWbqWqfm7fy/uC4TwJZwmoMxIvfRgQqOrSGbnG8yWXJaADKQUwQNDuUPLG8yXXUoFWG71gn/XGeGY9QYMICo6g4OaDlo8m/yat7VwE+6zsdIPl2aOR3pegfvNBS4em7ac6HOp9CepHUHAx99DOg9Q+6srHn4N93h6PguW1jrctQf34pgSOoOCeB3rQGknpdOhWbhnWE9SvL3tXPkIM6FNNg17dS854vuSyBLQpb+rfPRgc6If6J+O5kswa0MzGhWT3b2T39E7yxaa8q+tL+4+qf5FMceAeY2v/WlaM50k2i0D/jwgKjqDgCAqOoOAICo6g4AgKLkXQnmy7n8OHW/yzN7rUQWdnkPSjZ3Tb5ckq0MgyNQvfHnvP5c7IdZ/RfWy9nTubH5ldcmrfynp4mXodOW+yWQbqTYqoSQ73Y43QLWAOqNpeH0Mtm0ysBMet9F4yaGiZO0JDo8sIGj6Gv0ytn8yvRo+ffFaB6nuoNyqnQV2kJy55NbKD7f11i32jSx00uPe5hX75GdDZOVL/kg8vqza+RY77gkYoIjVq4/8Ii27JQac/rFvs5W1q6UFti6DgCAqOoOAICo6g4AgKjqDgCAqOoOAICo6g4AgKjqDgCAqOoOAICo6g4DToo/wGT1ETzUTFq7kAAAAASUVORK5CYII=" InformativeScreenshot="edfac703fb83581899dfea843c432fa9.png" Reference="nXYsBgmqu0mxoJwAwgUMhQ/OezRFmQcSEuXZBL7WgKU3w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dashboard ‖ Docterz' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </Sequence>
+                    </ActivityAction>
+                  </uix:NApplicationCard.Body>
+                  <uix:NApplicationCard.TargetApp>
+                    <uix:TargetApp Area="0, 0, 0, 0" />
+                  </uix:NApplicationCard.TargetApp>
+                </uix:NApplicationCard>
+              </Sequence>
+            </ActivityAction>
+          </ui:RetryScope.ActivityBody>
+          <ui:RetryScope.Condition>
+            <ActivityFunc x:TypeArguments="x:Boolean">
+              <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State Drug Listing" EnableIfExists="False" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="334,177" sap2010:WorkflowViewState.IdRef="NCheckState_2" Timeout="5" Version="V1">
+                <uix:NCheckState.IfExists>
+                  <Sequence DisplayName="Drug Listing Target appears" sap:VirtualizedContainerService.HintSize="400,105" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </uix:NCheckState.IfExists>
+                <uix:NCheckState.IfNotExists>
+                  <Sequence DisplayName="Drug Listing Target does not appear" sap:VirtualizedContainerService.HintSize="400,105" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </uix:NCheckState.IfNotExists>
+                <uix:NCheckState.Target>
+                  <uix:TargetAnchorable BrowserURL="https://web.docterz.in/#/drug" ContentHash="2HcDXg_YaEiYJ6BXf2v2Ig" DesignTimeRectangle="123, 184, 92, 26" ElementType="Text" FriendlyName="'Drug Listing'" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzyAccuracy="0.85" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='custom-font' aaname=' Listing' check:innerText='Drug Listing' /&gt;" Guid="4a5ded63-cad4-4324-b055-58d1e3590209" ImageBase64="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" InformativeScreenshot="0a55a98b0ef678de3bf892188f58c188.png" Reference="nXYsBgmqu0mxoJwAwgUMhQ/ukUqCZPRv02A8IIdTsiEGQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Drug ‖ Docterz' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="131, 278, 96, 20" ElementType="Text" FriendlyName="'Drug Listing'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='SPAN' /&gt;" FuzzyAccuracy="0.85" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='ng-binding sort-indicator' aaname='Brand Name' check:innerText='Brand Name' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGQAAAAYCAYAAAAMAljuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPpSURBVGhD7ZfRSxtBEMb7r/riSx6qoLWcD4kYBIMhHJxgC54PJzZIxcAFOREJ+mBKMMhhkShXQsAGRUJVSChK+Dqzt5eciUmuYuUK98FCdnd2b3d+uzObd4gUKkVAQqYISMgUAQmZIiAhUwQkZIqAhEw+IKfQ3s9gzF8mZzGt5mHfSZM30vEaf9/Asax7qltpak9As1uypatBY/439QOZz+Ps7h63NzXYlo4Yt83lUZNWb6HhQKhvUsdhD5OwAjk/PxclqPqBLOyjLltYxVXeaBrmlWx4A40EwiVF62zLDlIYgTAI0zRFCQplJBB3ox4Q1ya+XUI2Mysckzy4p/YWnIKBuOK2jX1YhPatwQNIcox5BGMpgXHRn4Zx1j3izR/7yMTdseNxA5nM8851gaShZ5eFbWztFE3Z1wekcQJDXcT4JLfPIkah15GfFPN8NLBFEWBiivqnVGxVG7A30649hWpls9KZG+0GihsqYmzLcy3lRoZxP4y/gTIEyCOa1V3EaYHj2hFuRZu0oTiesRzUKLQ1H6i5dQp9QYVmncC5rMH6nCAbFdYv35jJRXwqOHCqh8goXCfn8QlvlZBhJyg6zEoNTjmPFPcPAWJetQgAf4NA712Lvl4g9b1lKGoOVuUnanZO7CO2UXH75E2bXi/Rek5hpHg9tM9UDsdVb/0zlKvY2vuWu2enSqDZvufg+vUcDK+MgjI8qXOZM1CsPz61WT2R9QGyDTHW3ZAcQ6fZU31nkfrdW3d74J52rSw7ScNDlryt7WuYwpEqTPLM8JBFtgvUL534ZB5W2b9eUn0X01RXLIJ9d4Qk/fZgClW+Um5NIluV9VfU4KTO5VKeHjodulhPv3NdPeKmlENyToYsWQYC8TmkzzmkQEBYdDM1vk2KAX2VT7FvzJ0Da80LM7IMAvLkAJGu9qFQXQCRvztz+ErH/hU1Mod4p0csbgAQ95QnkKTcYlMsvj3SfQseDuRmT+3bXGAgpCY5U7wERZFj2g50BkW32ypzaHWQnaf6S4B4NyRbcQ9pp7Tw4HtU+PW6IatzQxpwvh/iE29kxA1xtpNkQzmiTPG6Qglf88fg4UBwmRfhYYzid5Hi95llYIJzSkAgrLrlQu2M+U15ievqrshpduELpnnOlwCh22+v035EDqzI+SgarHQfCc/pOSijYLBG5BB+UdApu+CXlM+mB4hI6p1XEiXnixI0ckAgIFw/kK8d/iO6cojiDjs4OJBu4u2O4aTeeTFtnMDeobEvAkLiV9bmsrtG3qNCD5hCrfsKGyA/lCAwWD4gkf6FGERQGKwISMgUAQmZIiAhUwQkZIqAhEwRkFAJ+ANYEVhiGBfpGgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NCheckState.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NCheckState>
+            </ActivityFunc>
+          </ui:RetryScope.Condition>
+        </ui:RetryScope>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="542,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Exception Drug Store in Docterz" sap:VirtualizedContainerService.HintSize="400,506" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Error Message (Docterz Navigate To)" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[exception.Message+&quot; at&quot;+exception.Source]" />
+              <ui:SetTransactionProgress TimeoutMS="{x:Null}" DisplayName="Set Transaction Progress Docterz Navigation Exception" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="338,133" sap2010:WorkflowViewState.IdRef="SetTransactionProgress_3" Progress="Failed to Ope Drug Store Page in Docterz" TransactionItem="[in_TransactionItem]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:SetTransactionProgress>
+              <Throw DisplayName="Throw SE02C" Exception="[new SystemException(&quot;SE02C&quot;)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <ui:SetTransactionProgress TimeoutMS="{x:Null}" DisplayName="Set Transaction Progress Docterz Navigation" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="SetTransactionProgress_2" Progress="Successfully Opened Drug Store Page in Docterz" TransactionItem="[in_TransactionItem]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:SetTransactionProgress>
+      </TryCatch.Finally>
+    </TryCatch>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="BussinessLayer\InventoryActions\PerformInventoryActions.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="576,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="BussinessLayer\InventoryActions\PerformInventoryActions.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+          <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+        </InArgument>
+        <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
+          <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
+        </InArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, ui:UiElement)" x:Key="io_dictUiElements">
+          <VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:UiElement)" ExpressionText="io_dictUiElements" />
+        </InOutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+  </Sequence>
+</Activity>

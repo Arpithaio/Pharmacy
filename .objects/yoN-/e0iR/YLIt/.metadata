@@ -1,0 +1,12 @@
+﻿{
+  "Id": "YLItZFCzSEiO4P1jOBu5qA",
+  "Reference": "nXYsBgmqu0mxoJwAwgUMhQ/YLItZFCzSEiO4P1jOBu5qA",
+  "ParentRef": "nXYsBgmqu0mxoJwAwgUMhQ/e0iRf9bFskW3mlmv1E0adw",
+  "Name": "Drugs Store",
+  "Type": "Screen",
+  "Created": "2023-01-25T13:18:08.7745801Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.4.1.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-01-25T13:18:08.7745801Z"
+}

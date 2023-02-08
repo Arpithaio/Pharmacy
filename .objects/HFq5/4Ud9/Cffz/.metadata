@@ -1,0 +1,12 @@
+﻿{
+  "Id": "CffzElD0eUeqRA2zOz0ZnQ",
+  "Reference": "nXYsBgmqu0mxoJwAwgUMhQ/CffzElD0eUeqRA2zOz0ZnQ",
+  "ParentRef": "nXYsBgmqu0mxoJwAwgUMhQ/4Ud9IZx0T0ef8T2V2ivn7Q",
+  "Name": "Pharmacy Inventory Stock",
+  "Type": "Screen",
+  "Created": "2023-01-25T12:20:12.6232445Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.4.1.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-01-25T12:20:12.6232445Z"
+}

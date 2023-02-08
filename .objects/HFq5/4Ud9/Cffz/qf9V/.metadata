@@ -1,0 +1,13 @@
+﻿{
+  "Id": "qf9VdF9ZikqHO5IWbJXU_w",
+  "Reference": "nXYsBgmqu0mxoJwAwgUMhQ/qf9VdF9ZikqHO5IWbJXU_w",
+  "ParentRef": "nXYsBgmqu0mxoJwAwgUMhQ/CffzElD0eUeqRA2zOz0ZnQ",
+  "Name": "Click Export Excel",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Created": "2023-01-25T12:20:27.0387007Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.4.1.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-01-25T12:20:27.0387007Z"
+}

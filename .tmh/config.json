@@ -1,0 +1,9 @@
+{
+  "issueKeyTestcaseValues": {},
+  "testManagerBasePath": "https://cloud.uipath.com/rpasoftio/TestingTenant/testmanager_/",
+  "defaultProject": {
+    "id": "4ca7d072-f816-0000-af31-0b44e32c0cde",
+    "name": "Sarji-OPD Patient management automation",
+    "key": "SARJI"
+  }
+}

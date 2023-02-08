@@ -1,0 +1,13 @@
+﻿{
+  "Id": "wT8hPbyaREWc_IKLGgCvgg",
+  "Reference": "nXYsBgmqu0mxoJwAwgUMhQ/wT8hPbyaREWc_IKLGgCvgg",
+  "ParentRef": "nXYsBgmqu0mxoJwAwgUMhQ/CffzElD0eUeqRA2zOz0ZnQ",
+  "Name": "Check App State 'Stock Level'",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Created": "2023-01-25T12:20:16.3997118Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.4.1.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-01-25T12:20:16.3997118Z"
+}

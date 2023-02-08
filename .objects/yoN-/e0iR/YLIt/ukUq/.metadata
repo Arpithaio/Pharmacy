@@ -1,0 +1,13 @@
+﻿{
+  "Id": "ukUqCZPRv02A8IIdTsiEGQ",
+  "Reference": "nXYsBgmqu0mxoJwAwgUMhQ/ukUqCZPRv02A8IIdTsiEGQ",
+  "ParentRef": "nXYsBgmqu0mxoJwAwgUMhQ/YLItZFCzSEiO4P1jOBu5qA",
+  "Name": "Drug Listing",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Created": "2023-01-25T13:18:57.0792528Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.4.1.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-01-25T13:18:57.0792528Z"
+}

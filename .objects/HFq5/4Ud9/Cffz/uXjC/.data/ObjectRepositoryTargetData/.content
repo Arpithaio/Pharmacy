@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="ELeVo_dhYU2eIgMlTpQhKg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="http://103.186.69.216/Hospisys/IMS/rptStockLevel" DesignTimeRectangle="582, 219, 119, 22" ElementType="DropDown" FriendlyName="'All'" FullSelectorArgument="&lt;webctrl id='CategoryType' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='CategoryType' tag='SELECT' type='' class='select input-sm font-bold valid' aaname='' /&gt;" Guid="b205d7b6-d9d1-44d2-b0b0-fbc35a9e4ac7" ImageBase64="" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Stock Level - Hospisys' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="465, 216, 113, 28" ElementType="Text" FriendlyName="'Category'" FullSelectorArgument="&lt;webctrl aaname='Category' tag='LABEL' /&gt;" FuzzyAccuracy="0.85" FuzzySelectorArgument="&lt;webctrl aaname='Category' tag='LABEL' type='' class='control-label right col-sm-3' check:innerText='Category' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHUAAAAgCAYAAAAsRzf4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJTSURBVGhD7Zu9TsMwEIDzLuysPAJjpD4AG+pTVBmZEC+A1GwsIAYkJqR0g6lT1aWq8gYdK/pDjzvnx/bFSQuoqHGu0ie1vtpJ7/Odw0AA8vLuFZwnExD8QlXqfD6H5XIptBzyqCpVpPqDSPUQkeohIrX1TOHrqg/bmR4TqS1mc9+HXXwHuyCA3eAGdtcPsMZxkdpi1m8o8gzVoVQILlDwGFY4LlJbzOb2Mhea0xtKpbad1cczbNPXrP0+jmH7MoVPHBeprWcB69E7rBd6rINSE4hwZwcmg8TxPQ7Ow/aWOmOnRbekjiIlMRo5YvuYDSEUqadGCsNeAGGcOmI5JM6s4EJivhkq46zq7bUdHQEpNlQah85xBV6P1koGWSyMn3CtEIbG36LZ+nwsoztSlbAIElesJIW0TBLbBCTWqlS+SewkkxBTMn0uxalNYtyLujdDUL6JzPm0CczP1fvRiNQGrETyJDrWM7/vkloXIxqvRbDrudYoEKkW1ZZZm+i8miqUD11srXJuVuH8XFftuJhLazse3nS109r1v6U7UmuSqckkmPG9lcqryaQhflClup7Ii/G6eE6HpCKUDCZOY5+JhWQr0VZ17Hnwako8X0t1EXamOufSNSOIyop10y2phEqg0RYNcaoFluOYdEyulpZJVDHWSvUcM9nVmCVKidUxS1LDhlD32NQhkO5J/Rd41RMkmY/9nKYHpAKRegxc5ylvsb/hwDVE6pGwWznxF6HZ+V5p0zWIVA8RqR4iUj1EpHqISPUQkeohpVR6I/iF/Nebd0zgG+zn/pnJKZvhAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="19eef20559f2d5d35800ec7c9f0b701c.png" xmlns="">0A-cuhi_e_UmltKgK8I2CHw</imageRef>
+    </TargetAnchorable>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
